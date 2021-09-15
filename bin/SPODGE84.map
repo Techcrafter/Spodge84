@@ -1,0 +1,138 @@
+Section          Base   Top    High   Length
+---------------- ------ ------ ------ -------
+.icon            D1A882 D1A9A3           121h
+.init.libs       D1A9A3 D1A9FB            58h
+.libs            D1A9FB D1AA50            55h
+.init.clock      D1AA50 D1AA6B            1Bh
+.init.reruncheck D1AA6B D1AA6B             0h
+.init            D1AA6B D1AA97            2Ch
+.fini            D1AA97 D1AACB            34h
+.text            D1AACB D1B6D3           C08h
+.data            D1B6D3 D3B3EB         1FD18h
+.rodata          D3B3EB D3B46B            80h
+.init_array      000000 000000             0h
+.ctors           000000 000000             0h
+.dtors           000000 000000             0h
+.fini_array      000000 000000             0h
+.bss             D052C6 D054E0 D13FD8    21Ah
+.header          D1A87F D1A882             3h
+
+Label                           Value
+-----------------------------   ------
+___low_bss                    = D052C6
+___len_bss                    = 00021A
+___heaptop                    = D13FD8
+___heapbot                    = D054E0
+___libs                       = D1A9FB
+___init_array_count           = 000000
+___ctors_count                = 000000
+___dtors_count                = 000000
+___fini_array_count           = 000000
+__stack                       = D1A87E
+_atomic_load_increasing_32    = D1AACB
+_delay                        = D1AAF0
+_os_DisableHomeTextBuffer     = D1AB1A
+_os_EnableHomeTextBuffer      = D1AB2C
+_random                       = D1AB3E
+__setstate                    = D1AB9C
+__state                       = D1B6D3
+___sleep_common.3             = D1ABAE
+_os_GetCSC                    = 021D3C
+_clock                        = D1ABC7
+__frameset                    = D1ABD2
+__fdiv                        = 000278
+__ftol                        = 00027C
+__imulu                       = 000158
+__ldivu                       = 0001B8
+__lmulu                       = 0001CC
+__ltof                        = 000284
+__sand                        = 000200
+__setflag                     = 000218
+_srand                        = D1ABE0
+.missingappvar                = D3B3EB
+.libloadname                  = D3B3F0
+.libloadnamelen               = 000007
+.webaddress                   = D3B3F8
+___init_clock                 = D1AA50
+__start                       = D1AA6B
+___exithl                     = D1AA97
+skip._exit                    = D1AA97
+skip.__Exit                   = D1AA97
+skip._abort                   = D1AA97
+_exit.sp                      = D1AA98
+_exit.flash_wait_states       = D1AAA2
+_bgp1_data                    = D1B6E3
+_bgp2_data                    = D201E5
+_bgp3_data                    = D24CE7
+_bgp4_data                    = D297E9
+_global_palette               = D2E2EB
+_meteorBrown_big1_data        = D2E4EB
+_meteorBrown_big2_data        = D2ED4B
+_meteorBrown_big3_data        = D2F8C9
+_meteorBrown_big4_data        = D30000
+_meteorBrown_med1_data        = D30932
+_meteorBrown_med3_data        = D3106D
+_meteorBrown_small1_data      = D31777
+_meteorBrown_small2_data      = D31A89
+_meteorBrown_tiny1_data       = D31D7D
+_meteorBrown_tiny2_data       = D31EC3
+_meteorGrey_big1_data         = D31FB5
+_meteorGrey_big2_data         = D32815
+_meteorGrey_big3_data         = D33393
+_meteorGrey_big4_data         = D33ACA
+_meteorGrey_med1_data         = D343FC
+_meteorGrey_med2_data         = D34B37
+_meteorGrey_small1_data       = D35241
+_meteorGrey_small2_data       = D35553
+_meteorGrey_tiny1_data        = D35847
+_meteorGrey_tiny2_data        = D3598D
+_playerBlue_data              = D35A7F
+_playerGreen_data             = D362C5
+_playerRed_data               = D36B0B
+_playerYellow_data            = D37351
+_techcrafter_data             = D37B97
+_main                         = D1ABE8
+_playerX                      = D3B3D9
+_playerY                      = D3B3DC
+_playerW                      = D3B3DF
+_playerH                      = D3B3E2
+_playerColor                  = D3B3E5
+L_.str                        = D3B40D
+_dead                         = D052C6
+_key                          = D052C9
+_numSprites                   = D3B3E8
+_colorCount                   = D052CA
+_score                        = D052CD
+_waitingCount                 = D052D0
+L_.str.1                      = D3B416
+L_.str.2                      = D3B41D
+L_.str.3                      = D3B428
+L_.str.4                      = D3B445
+L_.str.5                      = D3B45C
+_objectX                      = D052D3
+_objectY                      = D0531E
+_objectW                      = D05369
+_objectH                      = D053B4
+_objectVX                     = D053FF
+_objectVY                     = D0544A
+_loadedSprites                = D05495
+L_.str.6                      = D3B467
+_#gfx_Begin                   = D1AA04
+_#gfx_End                     = D1AA08
+_#gfx_SetColor                = D1AA0C
+_#gfx_SetPalette              = D1AA10
+_#gfx_FillScreen              = D1AA14
+_#gfx_SetDraw                 = D1AA18
+_#gfx_SwapDraw                = D1AA1C
+_#gfx_PrintInt                = D1AA20
+_#gfx_PrintStringXY           = D1AA24
+_#gfx_SetTextXY               = D1AA28
+_#gfx_SetTextBGColor          = D1AA2C
+_#gfx_SetTextFGColor          = D1AA30
+_#gfx_SetTextTransparentColor = D1AA34
+_#gfx_SetMonospaceFont        = D1AA38
+_#gfx_FillRectangle           = D1AA3C
+_#gfx_Sprite                  = D1AA40
+_#gfx_TransparentSprite       = D1AA44
+_#gfx_SetTextScale            = D1AA48
+_#gfx_SetTransparentColor     = D1AA4C

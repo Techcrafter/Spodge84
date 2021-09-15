@@ -1,0 +1,1386 @@
+	section	.text,"ax",@progbits
+	assume	adl = 1
+	section	.text,"ax",@progbits
+	public	_getXBlock
+_getXBlock:
+	call	__frameset0
+	ld	hl, (ix + 6)
+	ld	bc, 320
+	call	__imulu
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_getYBlock
+_getYBlock:
+	call	__frameset0
+	ld	hl, (ix + 6)
+	ld	bc, 240
+	call	__imulu
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	section	.text,"ax",@progbits
+	public	_main
+_main:
+	ld	hl, -30
+	call	__frameset
+	call	_gfx_Begin
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, 512
+	push	hl
+	ld	hl, _global_palette
+	push	hl
+	call	_gfx_SetPalette
+	pop	hl
+	pop	hl
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	call	_gfx_SetTransparentColor
+	pop	hl
+	ld	hl, 1
+	push	hl
+	call	_gfx_SetColor
+	pop	hl
+	ld	hl, 1
+	push	hl
+	call	_gfx_SetDraw
+	pop	hl
+	ld	hl, 1
+	push	hl
+	call	_gfx_FillScreen
+	pop	hl
+	call	_gfx_SwapDraw
+	ld	iy, -851900
+	ld	hl, (iy)
+	ld	a, (iy + 3)
+	push	hl
+	call	_srand
+	pop	hl
+	ld	hl, _techcrafter_data
+	ld	(_loadedSprites), hl
+	ld	hl, _playerBlue_data
+	ld	(_loadedSprites+3), hl
+	ld	hl, _playerGreen_data
+	ld	(_loadedSprites+6), hl
+	ld	hl, _playerRed_data
+	ld	(_loadedSprites+9), hl
+	ld	hl, _playerYellow_data
+	ld	(_loadedSprites+12), hl
+	ld	hl, _meteorBrown_tiny1_data
+	ld	(_loadedSprites+15), hl
+	ld	hl, _meteorGrey_tiny1_data
+	ld	(_loadedSprites+18), hl
+	ld	hl, _meteorBrown_tiny2_data
+	ld	(_loadedSprites+21), hl
+	ld	hl, _meteorGrey_tiny2_data
+	ld	(_loadedSprites+24), hl
+	ld	hl, _meteorBrown_small1_data
+	ld	(_loadedSprites+27), hl
+	ld	hl, _meteorGrey_small1_data
+	ld	(_loadedSprites+30), hl
+	ld	hl, _meteorBrown_small2_data
+	ld	(_loadedSprites+33), hl
+	ld	hl, _meteorGrey_small2_data
+	ld	(_loadedSprites+36), hl
+	ld	hl, _meteorBrown_med1_data
+	ld	(_loadedSprites+39), hl
+	ld	hl, _meteorGrey_med1_data
+	ld	(_loadedSprites+42), hl
+	ld	hl, _meteorBrown_med3_data
+	ld	(_loadedSprites+45), hl
+	ld	hl, _meteorGrey_med2_data
+	ld	(_loadedSprites+48), hl
+	ld	hl, _meteorBrown_big1_data
+	ld	(_loadedSprites+51), hl
+	ld	hl, _meteorGrey_big1_data
+	ld	(_loadedSprites+54), hl
+	ld	hl, _meteorBrown_big3_data
+	ld	(_loadedSprites+57), hl
+	ld	hl, _meteorGrey_big3_data
+	ld	(_loadedSprites+60), hl
+	ld	hl, _meteorBrown_big4_data
+	ld	(_loadedSprites+63), hl
+	ld	hl, _meteorGrey_big2_data
+	ld	(_loadedSprites+66), hl
+	ld	hl, _meteorGrey_big4_data
+	ld	(_loadedSprites+69), hl
+	ld	hl, _meteorBrown_big2_data
+	ld	(_loadedSprites+72), hl
+	ld	de, 25
+	ld	bc, 0
+BB2_1:
+	push	bc
+	pop	hl
+	or	a, a
+	sbc	hl, de
+	jq	z, BB2_14
+	push	bc
+	pop	hl
+	ld	(ix - 9), bc
+	ld	bc, 3
+	call	__imulu
+	push	hl
+	pop	bc
+	ld	hl, _objectX
+	add	hl, bc
+	ld	de, 0
+	ld	(hl), de
+	ld	hl, _objectY
+	add	hl, bc
+	ld	bc, (ix - 9)
+	ld	(hl), de
+	push	bc
+	pop	hl
+	ld	de, -5
+	add	hl, de
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	iy, 18
+	jq	c, BB2_6
+	push	bc
+	pop	hl
+	ld	de, -9
+	add	hl, de
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	iy, 28
+	jq	c, BB2_6
+	push	bc
+	pop	hl
+	ld	de, -13
+	add	hl, de
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	iy, 43
+	jq	c, BB2_6
+	push	bc
+	pop	hl
+	ld	de, 17
+	or	a, a
+	sbc	hl, de
+	ld	iy, 50
+	jq	c, BB2_7
+BB2_6:
+	push	bc
+	pop	hl
+	ld	bc, 3
+	call	__imulu
+	ld	bc, (ix - 9)
+	push	hl
+	pop	de
+	ld	hl, _objectW
+	add	hl, de
+	ld	(hl), iy
+	ld	hl, _objectH
+	add	hl, de
+	ld	(hl), iy
+BB2_7:
+	push	bc
+	pop	hl
+	ld	bc, 3
+	call	__imulu
+	push	hl
+	pop	de
+	ld	hl, _objectVX
+	add	hl, de
+	ld	bc, 0
+	ld	(ix - 3), hl
+	ld	(hl), bc
+	ld	hl, _objectVY
+	add	hl, de
+	ld	(ix - 6), hl
+	push	bc
+	pop	iy
+BB2_8:
+	ld	hl, (ix - 6)
+	ld	(hl), bc
+	lea	hl, iy
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jq	z, BB2_12
+	push	bc
+	pop	hl
+	ld	de, 5
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	p, BB2_12
+	push	bc
+	pop	hl
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jq	z, BB2_12
+	lea	hl, iy
+	ld	de, 5
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	m, BB2_13
+BB2_12:
+	call	_random
+	ld	bc, 8388607
+	xor	a, a
+	call	__ldivu
+	push	hl
+	pop	iy
+	ld	hl, -400
+	ex	de, hl
+	add	iy, de
+	lea	hl, iy
+	lea	bc, iy
+	add	iy, iy
+	sbc	hl, hl
+	ld	a, l
+	call	__ltof
+	ld	hl, -3670016
+	ld	e, 66
+	call	__fdiv
+	call	__ftol
+	ld	hl, (ix - 3)
+	ld	(hl), bc
+	call	_random
+	ld	bc, 8388607
+	xor	a, a
+	call	__ldivu
+	ld	de, -400
+	add	hl, de
+	push	hl
+	pop	bc
+	push	bc
+	pop	iy
+	add	iy, iy
+	sbc	hl, hl
+	ld	a, l
+	call	__ltof
+	ld	hl, -3670016
+	ld	e, 66
+	call	__fdiv
+	call	__ftol
+	ld	hl, (ix - 3)
+	ld	iy, (hl)
+	jq	BB2_8
+BB2_13:
+	ld	bc, (ix - 9)
+	inc	bc
+	ld	de, 25
+	jq	BB2_1
+BB2_14:
+	ld	hl, 8
+	push	hl
+	call	_gfx_SetMonospaceFont
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	call	_gfx_SetTextTransparentColor
+	pop	hl
+	ld	hl, 2
+	push	hl
+	call	_gfx_SetTextFGColor
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	call	_gfx_SetTextBGColor
+	pop	hl
+	ld	hl, 1
+	push	hl
+	call	_gfx_FillScreen
+	pop	hl
+	ld	hl, 60
+	push	hl
+	ld	hl, 100
+	push	hl
+	ld	hl, _techcrafter_data
+	push	hl
+	call	_gfx_TransparentSprite
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, L_.str
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	ld	hl, 296
+	push	hl
+	ld	hl, L_.str.6
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	call	_gfx_SwapDraw
+	ld	hl, 3000
+	push	hl
+	call	_delay
+	pop	hl
+BB2_15:
+	ld	hl, 1
+	push	hl
+	call	_gfx_FillScreen
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	push	hl
+	ld	hl, _bgp1_data
+	push	hl
+	call	_gfx_Sprite
+	pop	hl
+	pop	hl
+	pop	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, 160
+	push	hl
+	ld	hl, _bgp2_data
+	push	hl
+	call	_gfx_Sprite
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 120
+	push	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, _bgp3_data
+	push	hl
+	call	_gfx_Sprite
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 120
+	push	hl
+	ld	hl, 160
+	push	hl
+	ld	hl, _bgp4_data
+	push	hl
+	call	_gfx_Sprite
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, _objectVX
+	ld	(ix - 3), hl
+	ld	hl, _objectX
+	ld	(ix - 6), hl
+	ld	hl, _objectVY
+	ld	(ix - 9), hl
+	ld	hl, _objectY
+	ld	(ix - 12), hl
+	ld	hl, _objectW
+	ld	(ix - 15), hl
+	ld	hl, _objectH
+	ld	(ix - 21), hl
+	ld	hl, _loadedSprites
+	ld	(ix - 18), hl
+	or	a, a
+	sbc	hl, hl
+BB2_16:
+	ld	de, (_numSprites)
+	push	de
+	pop	bc
+	inc	bc
+	push	hl
+	pop	iy
+	or	a, a
+	sbc	hl, bc
+	jq	nc, BB2_37
+	lea	hl, iy
+	dec	hl
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	(ix - 24), iy
+	jq	nc, BB2_20
+	ld	de, (_playerColor)
+	lea	hl, iy
+	or	a, a
+	sbc	hl, de
+	jq	nz, BB2_20
+	ld	hl, (ix - 18)
+	ld	hl, (hl)
+	ld	de, (_playerX)
+	ld	bc, (_playerY)
+	push	bc
+	push	de
+	push	hl
+	call	_gfx_TransparentSprite
+	pop	hl
+	pop	hl
+	pop	hl
+	jq	BB2_36
+BB2_20:
+	lea	hl, iy
+	ld	de, 5
+	or	a, a
+	sbc	hl, de
+	jq	c, BB2_36
+	ld	hl, (ix - 3)
+	ld	de, (hl)
+	ld	iy, (ix - 6)
+	ld	hl, (iy)
+	add	hl, de
+	ld	(iy), hl
+	push	hl
+	pop	bc
+	ld	hl, (ix - 9)
+	ld	de, (hl)
+	ld	iy, (ix - 12)
+	ld	hl, (iy)
+	add	hl, de
+	ld	(iy), hl
+	ld	iy, (ix - 18)
+	ld	de, (iy)
+	push	hl
+	push	bc
+	push	de
+	call	_gfx_TransparentSprite
+	ld	iy, (ix - 3)
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, (ix - 6)
+	ld	hl, (hl)
+	ld	de, 0
+	push	de
+	pop	bc
+	push	hl
+	pop	de
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_23
+	ld	bc, (iy)
+	push	bc
+	pop	hl
+	push	de
+	pop	iy
+	ld	de, 0
+	or	a, a
+	sbc	hl, de
+	lea	de, iy
+	ld	iy, (ix - 3)
+	call	__setflag
+	jq	m, BB2_25
+BB2_23:
+	ld	hl, (ix - 15)
+	ld	bc, (hl)
+	ld	hl, 320
+	or	a, a
+	sbc	hl, bc
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	p, BB2_26
+	ld	bc, (iy)
+	push	bc
+	pop	hl
+	ld	(ix - 3), iy
+	push	de
+	pop	iy
+	ld	de, 1
+	or	a, a
+	sbc	hl, de
+	lea	de, iy
+	ld	iy, (ix - 3)
+	call	__setflag
+	jq	m, BB2_26
+BB2_25:
+	or	a, a
+	sbc	hl, hl
+	or	a, a
+	sbc	hl, bc
+	ld	(iy), hl
+BB2_26:
+	ld	hl, (ix - 12)
+	ld	hl, (hl)
+	ld	(ix - 27), hl
+	ld	bc, 0
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_28
+	ld	hl, (ix - 9)
+	push	de
+	pop	iy
+	push	bc
+	pop	de
+	ld	bc, (hl)
+	push	bc
+	pop	hl
+	or	a, a
+	sbc	hl, de
+	lea	de, iy
+	call	__setflag
+	jq	m, BB2_30
+BB2_28:
+	ld	hl, (ix - 21)
+	ld	bc, (hl)
+	ld	hl, 240
+	or	a, a
+	sbc	hl, bc
+	ld	bc, (ix - 27)
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_31
+	ld	hl, (ix - 9)
+	ld	bc, (hl)
+	push	bc
+	pop	hl
+	push	de
+	pop	iy
+	ld	de, 1
+	or	a, a
+	sbc	hl, de
+	lea	de, iy
+	call	__setflag
+	jq	m, BB2_31
+BB2_30:
+	or	a, a
+	sbc	hl, hl
+	or	a, a
+	sbc	hl, bc
+	ld	iy, (ix - 9)
+	ld	(iy), hl
+BB2_31:
+	ld	(ix - 30), de
+	ld	hl, (ix - 15)
+	ld	hl, (hl)
+	add	hl, de
+	push	hl
+	pop	bc
+	ld	iy, (_playerX)
+	lea	hl, iy
+	ld	de, 3
+	add	hl, de
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_36
+	ld	bc, (_playerW)
+	ld	de, -3
+	add	iy, de
+	add	iy, bc
+	lea	bc, iy
+	ld	hl, (ix - 30)
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_36
+	ld	hl, (ix - 21)
+	ld	hl, (hl)
+	ld	de, (ix - 27)
+	add	hl, de
+	ex	de, hl
+	ld	iy, (_playerY)
+	lea	hl, iy
+	ld	bc, 3
+	add	hl, bc
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	p, BB2_36
+	ld	de, (_playerH)
+	ld	bc, -3
+	add	iy, bc
+	add	iy, de
+	lea	de, iy
+	ld	hl, (ix - 27)
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	p, BB2_36
+	ld	hl, 1
+	ld	(_dead), hl
+BB2_36:
+	ld	hl, (ix - 24)
+	inc	hl
+	ld	iy, (ix - 18)
+	lea	iy, iy + 3
+	ld	(ix - 18), iy
+	ld	iy, (ix - 21)
+	lea	iy, iy + 3
+	ld	(ix - 21), iy
+	ld	iy, (ix - 15)
+	lea	iy, iy + 3
+	ld	(ix - 15), iy
+	ld	iy, (ix - 12)
+	lea	iy, iy + 3
+	ld	(ix - 12), iy
+	ld	iy, (ix - 9)
+	lea	iy, iy + 3
+	ld	(ix - 9), iy
+	ld	iy, (ix - 6)
+	lea	iy, iy + 3
+	ld	(ix - 6), iy
+	ld	iy, (ix - 3)
+	lea	iy, iy + 3
+	ld	(ix - 3), iy
+	jq	BB2_16
+BB2_37:
+	ld	hl, (_dead)
+	ld	bc, 1
+	or	a, a
+	sbc	hl, bc
+	jq	nz, BB2_38
+	ld	hl, 232
+	push	hl
+	ld	hl, 245
+	push	hl
+	ld	hl, L_.str.5
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, L_.str.1
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	ld	hl, 50
+	push	hl
+	call	_gfx_SetTextXY
+	pop	hl
+	pop	hl
+	ld	hl, (_score)
+	ld	de, 1
+	push	de
+	push	hl
+	call	_gfx_PrintInt
+	pop	hl
+	pop	hl
+	call	_gfx_SwapDraw
+	ld	hl, 2000
+	push	hl
+	call	_delay
+	pop	hl
+	ld	bc, 0
+	ld	(_dead), bc
+	ld	(_waitingCount), bc
+	ld	(_score), bc
+	ld	hl, 137
+	ld	(_playerX), hl
+	ld	hl, 97
+	ld	(_playerY), hl
+	ld	hl, 5
+	ld	(_numSprites), hl
+	ld	(_colorCount), bc
+	ld	hl, 2
+	ld	(_playerColor), hl
+BB2_77:
+	ld	de, 25
+	push	bc
+	pop	hl
+	or	a, a
+	sbc	hl, de
+	jq	z, BB2_15
+	push	bc
+	pop	hl
+	ld	(ix - 9), bc
+	ld	bc, 3
+	call	__imulu
+	push	hl
+	pop	bc
+	ld	hl, _objectX
+	add	hl, bc
+	ld	de, 0
+	ld	(hl), de
+	ld	hl, _objectY
+	add	hl, bc
+	ld	bc, (ix - 9)
+	ld	(hl), de
+	push	bc
+	pop	hl
+	ld	de, -5
+	add	hl, de
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	iy, 18
+	jq	c, BB2_82
+	push	bc
+	pop	hl
+	ld	de, -9
+	add	hl, de
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	iy, 28
+	jq	c, BB2_82
+	push	bc
+	pop	hl
+	ld	de, -13
+	add	hl, de
+	ld	de, 4
+	or	a, a
+	sbc	hl, de
+	ld	iy, 43
+	jq	c, BB2_82
+	push	bc
+	pop	hl
+	ld	de, 17
+	or	a, a
+	sbc	hl, de
+	ld	iy, 50
+	jq	c, BB2_83
+BB2_82:
+	push	bc
+	pop	hl
+	ld	bc, 3
+	call	__imulu
+	ld	bc, (ix - 9)
+	push	hl
+	pop	de
+	ld	hl, _objectW
+	add	hl, de
+	ld	(hl), iy
+	ld	hl, _objectH
+	add	hl, de
+	ld	(hl), iy
+BB2_83:
+	push	bc
+	pop	hl
+	ld	bc, 3
+	call	__imulu
+	push	hl
+	pop	de
+	ld	hl, _objectVX
+	add	hl, de
+	ld	bc, 0
+	ld	(ix - 3), hl
+	ld	(hl), bc
+	ld	hl, _objectVY
+	add	hl, de
+	ld	(ix - 6), hl
+	push	bc
+	pop	iy
+BB2_84:
+	ld	hl, (ix - 6)
+	ld	(hl), bc
+	lea	hl, iy
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jq	z, BB2_88
+	push	bc
+	pop	hl
+	ld	de, 5
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	p, BB2_88
+	push	bc
+	pop	hl
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jq	z, BB2_88
+	lea	hl, iy
+	ld	de, 5
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	jq	m, BB2_89
+BB2_88:
+	call	_random
+	ld	bc, 8388607
+	xor	a, a
+	call	__ldivu
+	push	hl
+	pop	iy
+	ld	hl, -400
+	ex	de, hl
+	add	iy, de
+	lea	hl, iy
+	lea	bc, iy
+	add	iy, iy
+	sbc	hl, hl
+	ld	a, l
+	call	__ltof
+	ld	hl, -3670016
+	ld	e, 66
+	call	__fdiv
+	call	__ftol
+	ld	hl, (ix - 3)
+	ld	(hl), bc
+	call	_random
+	ld	bc, 8388607
+	xor	a, a
+	call	__ldivu
+	ld	de, -400
+	add	hl, de
+	push	hl
+	pop	bc
+	push	bc
+	pop	iy
+	add	iy, iy
+	sbc	hl, hl
+	ld	a, l
+	call	__ltof
+	ld	hl, -3670016
+	ld	e, 66
+	call	__fdiv
+	call	__ftol
+	ld	hl, (ix - 3)
+	ld	iy, (hl)
+	jq	BB2_84
+BB2_89:
+	ld	bc, (ix - 9)
+	inc	bc
+	jq	BB2_77
+BB2_38:
+	ld	hl, -720866
+	push	de
+	ld	e, (hl)
+	inc	hl
+	ld	d, (hl)
+	ld	iyl, e
+	ld	iyh, d
+	pop	de
+	ld	a, iyl
+	ld	(_key), a
+	ld	hl, (_playerY)
+	bit	3, a
+	ld	(ix - 3), hl
+	jq	z, BB2_41
+	ld	bc, 1
+	or	a, a
+	sbc	hl, bc
+	ld	bc, (ix - 3)
+	call	__setflag
+	jq	m, BB2_41
+	ld	hl, 4
+	or	a, a
+	sbc	hl, de
+	jq	BB2_45
+BB2_41:
+	ex	de, hl
+	ld	e, iyl
+	ld	d, iyh
+	ex	de, hl
+	ld.sis	bc, 1
+	call	__sand
+	ld	a, l
+	ld	l, 1
+	xor	a, l
+	bit	0, a
+	jq	nz, BB2_42
+	ld	hl, (_playerH)
+	ld	bc, (ix - 3)
+	add	hl, bc
+	ld	bc, 240
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_42
+	push	de
+	pop	hl
+	ld	bc, -4
+	add	hl, bc
+	ld	bc, (ix - 3)
+BB2_45:
+	add	hl, bc
+	ld	(_playerY), hl
+	push	hl
+	pop	bc
+	jq	BB2_46
+BB2_42:
+	ld	bc, (ix - 3)
+BB2_46:
+	ld	(ix - 6), iy
+	ld	a, iyl
+	ld	iy, (_playerX)
+	bit	1, a
+	jq	z, BB2_49
+	lea	hl, iy
+	ld	(ix - 3), bc
+	ld	bc, 1
+	or	a, a
+	sbc	hl, bc
+	ld	bc, (ix - 3)
+	call	__setflag
+	jq	m, BB2_49
+	ld	hl, 4
+	or	a, a
+	sbc	hl, de
+	jq	BB2_53
+BB2_49:
+	ld	hl, (ix - 6)
+	ld	a, l
+	bit	2, a
+	jq	z, BB2_54
+	ld	(ix - 3), bc
+	ld	hl, (_playerW)
+	lea	bc, iy
+	add	hl, bc
+	ld	bc, 320
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	p, BB2_51
+	ex	de, hl
+	ld	de, -4
+	add	hl, de
+	ld	bc, (ix - 3)
+BB2_53:
+	lea	de, iy
+	add	hl, de
+	ld	(_playerX), hl
+	push	hl
+	pop	iy
+BB2_54:
+	ld	de, 0
+BB2_55:
+	push	bc
+	pop	hl
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	ld	hl, 0
+	jq	m, BB2_57
+	ld	hl, (_playerH)
+	add	hl, bc
+	ld	bc, 241
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	ld	hl, 194
+	jq	m, BB2_58
+BB2_57:
+	ld	(_playerY), hl
+BB2_58:
+	lea	bc, iy
+	push	bc
+	pop	hl
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	ld	hl, 0
+	jq	m, BB2_60
+	ld	hl, (_playerW)
+	add	hl, bc
+	ld	de, 321
+	or	a, a
+	sbc	hl, de
+	call	__setflag
+	ld	hl, 274
+	jq	m, BB2_61
+BB2_60:
+	ld	(_playerX), hl
+BB2_61:
+	call	_os_GetCSC
+	ld	(_key), a
+	cp	a, 15
+	jq	nz, BB2_62
+	ld	hl, 3
+	push	hl
+	call	_gfx_SetColor
+	pop	hl
+	ld	hl, 105
+	push	hl
+	ld	hl, 320
+	push	hl
+	ld	hl, 70
+	push	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	call	_gfx_FillRectangle
+	pop	hl
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 2
+	push	hl
+	push	hl
+	call	_gfx_SetTextScale
+	pop	hl
+	pop	hl
+	ld	hl, 90
+	push	hl
+	ld	hl, 80
+	push	hl
+	ld	hl, L_.str.2
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 1
+	push	hl
+	push	hl
+	call	_gfx_SetTextScale
+	pop	hl
+	pop	hl
+	ld	hl, 125
+	push	hl
+	ld	hl, 55
+	push	hl
+	ld	hl, L_.str.3
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 145
+	push	hl
+	ld	hl, 62
+	push	hl
+	ld	hl, L_.str.4
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, L_.str.1
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	ld	hl, 50
+	push	hl
+	call	_gfx_SetTextXY
+	pop	hl
+	pop	hl
+	ld	hl, (_score)
+	ld	de, 1
+	push	de
+	push	hl
+	call	_gfx_PrintInt
+	pop	hl
+	pop	hl
+	call	_gfx_SwapDraw
+BB2_73:
+	call	_os_GetCSC
+	ld	(_key), a
+	cp	a, 15
+	jq	z, BB2_15
+	cp	a, 56
+	jq	nz, BB2_73
+	jq	BB2_75
+BB2_62:
+	ld	hl, (_colorCount)
+	inc	hl
+	ld	(_colorCount), hl
+	ld	de, 18
+	or	a, a
+	sbc	hl, de
+	jq	nz, BB2_67
+	ld	de, (_playerColor)
+	push	de
+	pop	hl
+	ld	bc, 4
+	or	a, a
+	sbc	hl, bc
+	call	__setflag
+	jq	m, BB2_64
+	ld	de, 1
+	jq	BB2_66
+BB2_51:
+	ld	de, 0
+	ld	bc, (ix - 3)
+	jq	BB2_55
+BB2_64:
+	inc	de
+BB2_66:
+	ld	(_playerColor), de
+	ld	hl, (_score)
+	inc	hl
+	ld	(_score), hl
+	or	a, a
+	sbc	hl, hl
+	ld	(_colorCount), hl
+BB2_67:
+	ld	hl, (_waitingCount)
+	inc	hl
+	ld	(_waitingCount), hl
+	ld	de, 360
+	or	a, a
+	sbc	hl, de
+	jq	nz, BB2_71
+	ld	de, (_numSprites)
+	push	de
+	pop	hl
+	ld	bc, 25
+	or	a, a
+	sbc	hl, bc
+	jq	nc, BB2_70
+	inc	de
+	ld	(_numSprites), de
+BB2_70:
+	or	a, a
+	sbc	hl, hl
+	ld	(_waitingCount), hl
+BB2_71:
+	ld	hl, 232
+	push	hl
+	or	a, a
+	sbc	hl, hl
+	push	hl
+	ld	hl, L_.str.1
+	push	hl
+	call	_gfx_PrintStringXY
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, 232
+	push	hl
+	ld	hl, 50
+	push	hl
+	call	_gfx_SetTextXY
+	pop	hl
+	pop	hl
+	ld	hl, (_score)
+	ld	de, 1
+	push	de
+	push	hl
+	call	_gfx_PrintInt
+	pop	hl
+	pop	hl
+	call	_gfx_SwapDraw
+	jq	BB2_15
+BB2_75:
+	call	_gfx_End
+	or	a, a
+	sbc	hl, hl
+	ld	sp, ix
+	pop	ix
+	ret
+	section	.text,"ax",@progbits
+
+	section	.data,"aw",@progbits
+	public	_playerX
+_playerX:
+	dl	137
+
+	section	.data,"aw",@progbits
+	public	_playerY
+_playerY:
+	dl	97
+
+	section	.data,"aw",@progbits
+	public	_playerW
+_playerW:
+	dl	46
+
+	section	.data,"aw",@progbits
+	public	_playerH
+_playerH:
+	dl	46
+
+	section	.data,"aw",@progbits
+	public	_playerColor
+_playerColor:
+	dl	1
+
+	section	.rodata,"a",@progbits
+	public	_hitboxAdjust
+_hitboxAdjust:
+	dl	3
+
+	section	.rodata,"a",@progbits
+	private	L_.str
+L_.str:
+	db	"Spodge84", 0
+
+	section	.bss,"aw",@nobits
+	public	_dead
+_dead:
+	rb	3
+
+	section	.bss,"aw",@nobits
+	public	_key
+_key:
+	rb	1
+
+	section	.data,"aw",@progbits
+	private	_numSprites
+_numSprites:
+	dl	5
+
+	section	.bss,"aw",@nobits
+	public	_colorCount
+_colorCount:
+	rb	3
+
+	section	.bss,"aw",@nobits
+	public	_score
+_score:
+	rb	3
+
+	section	.bss,"aw",@nobits
+	public	_waitingCount
+_waitingCount:
+	rb	3
+
+	section	.rodata,"a",@progbits
+	private	L_.str.1
+L_.str.1:
+	db	"Score:", 0
+
+	section	.rodata,"a",@progbits
+	private	L_.str.2
+L_.str.2:
+	db	"Pause menu", 0
+
+	section	.rodata,"a",@progbits
+	private	L_.str.3
+L_.str.3:
+	db	"Press [clear] to continue...", 0
+
+	section	.rodata,"a",@progbits
+	private	L_.str.4
+L_.str.4:
+	db	"Press [del] to exit...", 0
+
+	section	.rodata,"a",@progbits
+	private	L_.str.5
+L_.str.5:
+	db	"GAME OVER!", 0
+
+	section	.bss,"aw",@nobits
+	public	_objectX
+_objectX:
+	rb	75
+
+	section	.bss,"aw",@nobits
+	public	_objectY
+_objectY:
+	rb	75
+
+	section	.bss,"aw",@nobits
+	public	_objectW
+_objectW:
+	rb	75
+
+	section	.bss,"aw",@nobits
+	public	_objectH
+_objectH:
+	rb	75
+
+	section	.bss,"aw",@nobits
+	public	_objectVX
+_objectVX:
+	rb	75
+
+	section	.bss,"aw",@nobits
+	public	_objectVY
+_objectVY:
+	rb	75
+
+	section	.bss,"aw",@nobits
+	public	_loadedSprites
+_loadedSprites:
+	rb	75
+
+	section	.rodata,"a",@progbits
+	private	L_.str.6
+L_.str.6:
+	db	"1.0", 0
+
+	ident	"clang version 14.0.0 (https://github.com/jacobly0/llvm-project a139def90d26173f771eb1eca797633d1fbb2797)"
+	extern	_random
+	extern	__ldivu
+	extern	_techcrafter_data
+	extern	_gfx_SetTextTransparentColor
+	extern	__Unwind_SjLj_Register
+	extern	_srand
+	extern	_meteorGrey_big3_data
+	extern	_meteorGrey_med1_data
+	extern	_gfx_SetTextFGColor
+	extern	_gfx_Begin
+	extern	_gfx_SetPalette
+	extern	_playerRed_data
+	extern	_gfx_SetMonospaceFont
+	extern	_meteorBrown_small2_data
+	extern	_bgp3_data
+	extern	_meteorGrey_small2_data
+	extern	__sand
+	extern	_meteorBrown_big4_data
+	extern	__ftol
+	extern	_gfx_PrintInt
+	extern	__setflag
+	extern	_meteorBrown_big1_data
+	extern	_gfx_FillRectangle
+	extern	__ltof
+	extern	_gfx_Sprite
+	extern	_meteorBrown_tiny1_data
+	extern	_meteorGrey_med2_data
+	extern	_meteorGrey_big4_data
+	extern	_delay
+	extern	_playerGreen_data
+	extern	_os_GetCSC
+	extern	_meteorGrey_big1_data
+	extern	_meteorGrey_tiny1_data
+	extern	_bgp4_data
+	extern	_meteorBrown_med3_data
+	extern	__frameset
+	extern	_gfx_SetTextBGColor
+	extern	_global_palette
+	extern	_gfx_SetTransparentColor
+	extern	_playerYellow_data
+	extern	_bgp1_data
+	extern	_meteorBrown_big2_data
+	extern	_meteorBrown_tiny2_data
+	extern	_gfx_SwapDraw
+	extern	_gfx_SetDraw
+	extern	_meteorGrey_big2_data
+	extern	_gfx_FillScreen
+	extern	__Unwind_SjLj_Unregister
+	extern	_playerBlue_data
+	extern	_meteorGrey_tiny2_data
+	extern	__fdiv
+	extern	__imulu
+	extern	_gfx_SetColor
+	extern	_meteorBrown_small1_data
+	extern	_bgp2_data
+	extern	_meteorGrey_small1_data
+	extern	_meteorBrown_big3_data
+	extern	_meteorBrown_med1_data
+	extern	_gfx_PrintStringXY
+	extern	_gfx_End
+	extern	__frameset0
+	extern	_gfx_SetTextXY
+	extern	_gfx_TransparentSprite
+	extern	_gfx_SetTextScale

@@ -1,0 +1,55 @@
+palettes:
+  - name: global_palette
+    fixed-entries:
+      - color: {index: 0, r: 255, g: 0, b: 220}
+      - color: {index: 1, r: 0, g: 0, b: 0}
+      - color: {index: 2, r: 255, g: 255, b: 255}
+      - color: {index: 3, r: 50, g: 50, b: 50}
+      - color: {index: 4, r: 0, g: 220, b: 30}
+      - color: {index: 5, r: 255, g: 0, b: 0}
+      - color: {index: 6, r: 255, g: 230, b: 0}
+    images: automatic
+
+converts:
+  - name: sprites
+    palette: global_palette
+    transparent-color-index: 0
+    images:
+      - techcrafter.png
+      - playerBlue.png
+      - playerGreen.png
+      - playerRed.png
+      - playerYellow.png
+      - meteorBrown_tiny1.png
+      - meteorGrey_tiny1.png
+      - meteorBrown_tiny2.png
+      - meteorGrey_tiny2.png
+      - meteorBrown_small1.png
+      - meteorGrey_small1.png
+      - meteorBrown_small2.png
+      - meteorGrey_small2.png
+      - meteorBrown_med1.png
+      - meteorGrey_med1.png
+      - meteorBrown_med3.png
+      - meteorGrey_med2.png
+      - meteorBrown_big1.png
+      - meteorGrey_big1.png
+      - meteorBrown_big3.png
+      - meteorGrey_big3.png
+      - meteorBrown_big4.png
+      - meteorGrey_big2.png
+      - meteorGrey_big4.png
+      - meteorBrown_big2.png
+      
+      - bgp1.png
+      - bgp2.png
+      - bgp3.png
+      - bgp4.png
+
+outputs:
+  - type: c
+    include-file: gfx.h
+    palettes:
+     - global_palette
+    converts:
+      - sprites

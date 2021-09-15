@@ -1,0 +1,27 @@
+	section .icon
+
+	jp	___prgm_init
+	db	$01
+	public ___icon
+___icon:
+	db	$10, $10
+	db	$00, $00, $00, $00, $29, $73, $95, $95, $95, $95, $73, $29, $00, $00, $00, $00
+	db	$00, $00, $00, $73, $B6, $DE, $DE, $BE, $BE, $DE, $DE, $B6, $73, $00, $00, $00
+	db	$00, $00, $74, $BE, $DE, $DE, $DE, $BE, $BE, $DE, $DE, $DE, $BE, $74, $00, $00
+	db	$00, $73, $BE, $DE, $BE, $9D, $3D, $3D, $3E, $3E, $9E, $DE, $DE, $BE, $73, $00
+	db	$29, $B6, $BE, $DE, $5D, $3D, $9D, $9D, $9E, $9E, $3E, $7D, $DE, $BE, $B6, $29
+	db	$73, $DE, $BE, $9E, $3E, $9D, $73, $4A, $4A, $73, $9D, $3D, $9D, $BE, $DE, $73
+	db	$95, $DE, $DE, $3E, $9E, $73, $4A, $4A, $4A, $4A, $93, $9D, $3D, $DE, $DE, $95
+	db	$B5, $DE, $BE, $3E, $9E, $49, $4A, $4A, $4A, $4A, $4A, $9D, $3D, $BE, $DE, $B5
+	db	$B5, $DE, $BE, $3D, $9D, $49, $4A, $4A, $4A, $4A, $4A, $9E, $3E, $BE, $DE, $B5
+	db	$95, $DE, $DE, $3D, $9D, $73, $4A, $4A, $4A, $4A, $93, $7E, $3E, $DE, $DE, $95
+	db	$73, $DE, $BE, $9D, $3D, $9D, $93, $4A, $4A, $93, $9D, $3E, $9E, $BE, $DE, $73
+	db	$29, $B6, $BE, $DE, $7D, $3E, $9E, $9E, $9D, $9D, $3D, $7D, $DE, $BE, $B6, $29
+	db	$00, $73, $BE, $DE, $DE, $9E, $3E, $3E, $3D, $3D, $9D, $DE, $DE, $BE, $6C, $00
+	db	$00, $00, $74, $BE, $DE, $DE, $DE, $BE, $BE, $DE, $DE, $DE, $BE, $74, $00, $00
+	db	$00, $00, $00, $73, $B6, $DE, $DE, $BE, $BE, $DE, $DE, $B6, $6B, $00, $00, $00
+	db	$00, $00, $00, $00, $29, $73, $95, $B5, $B5, $95, $73, $29, $00, $00, $00, $00
+	public ___description
+___description:
+	db	"Avoid the flying objects!", 0
+___prgm_init:
