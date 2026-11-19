@@ -4,6 +4,9 @@ Port of my 3DS homebrew game for the TI-84 Plus CE graphing calculator where you
 ## [Download the game for free](https://github.com/Techcrafter/Spodge84/releases/latest)
 **To play this game, you need the [clibs](https://github.com/CE-Programming/libraries/releases/latest) installed on your calculator!**
 
+## ✅ Project state
+This project is considered finished and is therefore being archived.
+
 ## Screenshot
 
 ![Screenshot 1](https://github.com/Techcrafter/Spodge84/raw/main/docs/screenshot1.png)
